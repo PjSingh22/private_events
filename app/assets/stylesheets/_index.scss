@@ -5,8 +5,7 @@
   .cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-
+      
     .card {
       display: flex;
       flex-direction: column;
@@ -14,13 +13,16 @@
       border: 1px solid black;
       flex: 0 1 calc(25% - 1em);
       margin-bottom: 1em;
+      margin-right: 1em;
 
       .title {
         margin-bottom: 0;
+        align-items: center;
+        font-weight: 500;
       }
 
       .body {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         padding: 15px;
       }
 
@@ -41,10 +43,10 @@
   .cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 
     .card {
       flex: 0 1 calc(25% - 1em);
+      max-width: calc(50% -  1em);
     }
   }
 }
@@ -52,5 +54,6 @@
 @media screen and (min-width: 60em) {
   .card {
       flex: 0 1 calc(25% - 1em);
+      max-width: calc(25% - 1em);
   }
 }
