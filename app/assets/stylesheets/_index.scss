@@ -1,29 +1,38 @@
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 
-  .card {
+#container {
+  padding: 20px;
+
+  .cards {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid black;
-    flex: 0 1 calc(25% - 1em);
-    margin-bottom: 1em;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
-    .title {
-      margin-bottom: 0;
-    }
-
-    .body {
-      font-size: 1.5rem;
-      padding: 15px;
-    }
-
-    .actions {
-      width: 50%;
+    .card {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid black;
+      flex: 0 1 calc(25% - 1em);
+      margin-bottom: 1em;
+
+      .title {
+        margin-bottom: 0;
+      }
+
+      .body {
+        font-size: 1.5rem;
+        padding: 15px;
+      }
+
+      .date {
+        font-size: 1rem;
+      }
+
+      .actions {
+        width: 75%;
+        display: flex;
+        justify-content: space-around;
+      }
     }
   }
 }
