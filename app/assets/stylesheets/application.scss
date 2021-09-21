@@ -19,36 +19,3 @@
  .notification:not(:last-child) {
   margin-bottom: 0;
 }
-
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid black;
-    flex: 0 1 calc(25% - 1em);
-    margin-bottom: 1em;
-  }
-}
-
-@media screen and (min-width: 40em) {
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    .card {
-      flex: 0 1 calc(25% - 1em);
-    }
-  }
-}
-
-@media screen and (min-width: 60em) {
-  .card {
-      flex: 0 1 calc(25% - 1em);
-  }
-}
