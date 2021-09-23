@@ -1,1 +1,20 @@
-<%= @user.name %>
+<div id="container">
+  <h1><%= @user.name %>'s events</h1>
+
+  <div class="centered">
+    <section class="cards">
+      <% @user.creator_events.each do |event| %>
+        <article class='card'>
+          <p class="title"><%= event.title %></p>
+          <p class='body'><%= event.body %></p>
+          <p class='date'><%= event.date %></p>
+          <div class="actions">
+            <span><%= link_to 'Edit', edit_event_path(event) %></span>
+            <span><%= link_to 'Show', event_path(event) %></span>
+            <span><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+          </div>
+        </article>
+      <% end %>
+    </section>
+  </div>
+</div>
