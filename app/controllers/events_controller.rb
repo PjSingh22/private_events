@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_event, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show]
   # GET /events or /events.json
@@ -65,5 +66,9 @@ class EventsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def event_params
       params.require(:event).permit(:title, :body, :date)
+    end
+
+    def json_request?
+      request.format.json?
     end
 end
