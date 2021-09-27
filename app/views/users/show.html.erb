@@ -3,7 +3,7 @@
 
   <div class="centered">
     <section class="cards">
-      <% @user.creator_events.each do |event| %>
+      <% @user.events.each do |event| %>
         <article class='card'>
           <p class="title"><%= event.title %></p>
           <p class='body'><%= event.body %></p>
