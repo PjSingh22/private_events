@@ -17,6 +17,7 @@
           <h3 class="author is-2">
             Hosted By: <%= @event.creator.name %>
           </h3>
+          <%# <%= link_to 'RSVP', enrollment_path(@event.attendees.id) %> <%# work on this. look up how to hook up many through%>
           <%= link_to 'Edit', edit_event_path(@event) %> |
           <%= link_to "Back", :back %> 
         </div>

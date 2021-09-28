@@ -7,4 +7,8 @@ class EnrollmentsController < ApplicationController
   def show
     @enrollment = Enrollment.find(params[:id])
   end
+
+  def create
+    @enrollment = Enrollment.new(enrollment_params)
+  end
 end
