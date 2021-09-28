@@ -1,17 +1,26 @@
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @event.body %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<section class="section">
+  <div class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-4 show-border">
+          <h1 class="title is-2">
+            <%= @event.title %>
+          </h1>
+          <h3 class="body is-2">
+            <%= @event.body %>
+          </h3>
+          <br />
+          <h3 class="date is-2">
+            Date & Time: <%= @event.date %>
+          </h3>
+          <br />
+          <h3 class="author is-2">
+            Hosted By: <%= @event.creator.name %>
+          </h3>
+          <%= link_to 'Edit', edit_event_path(@event) %> |
+          <%= link_to "Back", :back %> 
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
