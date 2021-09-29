@@ -1,8 +1,8 @@
 class EnrollmentsController < ApplicationController
 
   def create
-    event = Event.find_by_id(params[:event_id])
-    user = User.find_by_id(params[:user_id])
+    event = Event.find(params[:event_id])
+    user = User.find(params[:user_id])
     enrollment = Enrollment.new(event_id: event, user_id: user)
     if enrollment.save
       flash[:notice] = "You have successfully enrolled in #{event.name}"
