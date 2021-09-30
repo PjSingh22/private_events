@@ -1,15 +1,15 @@
 class EnrollmentsController < ApplicationController
 
   def create
-    event = Event.find(params[:event_id])
-    user = User.find(params[:user_id])
-    enrollment = Enrollment.new(event_id: event, user_id: user)
-    if enrollment.save
-      flash[:notice] = "You have successfully enrolled in #{event.name}"
+    event = Event.find_by_id(params[:event_id])
+    user = User.find_by_id(params[:user_id])
+    attendance = event.attendees.create(event_id: event.id, user_id: user.id)
+    if attendance.save
+      redirect_to event_path(event)
     else
-      flash[:notice] = "You are already enrolled in #{event.name}"
+      flash[:notice] = "You are already registered for this event"
+      redirect_to event_path(event)
     end
-    redirect_to event_path(event)
   end
 
   def destroy
@@ -22,14 +22,15 @@ class EnrollmentsController < ApplicationController
   end
 
   def update
-    event = Event.find(params[:event_id])
-    @enrollment = Enrollment.find_by(event_id: event.id, user_id: current_user.id)
+    @event = Event.find(params[:event_id])
+    @enrollment = Enrollment.find_by(event_id: params[:event_id], user_id: current_user.id)
     if @enrollment
-      flash[:notice] = "You have successfully updated your reservation!"
+      flash[:notice] = "Thank you for signing up for the '#{@event.name}'!"
     else
-      flash[:alert] = "You have not updated your reservation!"
+      flash[:alert] = 'Your name is not on the invitation list'
     end
-    redirect_to event_path(event)
+
+    redirect_to event_path(@event)
   end
 
   private
