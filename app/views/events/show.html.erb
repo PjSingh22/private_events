@@ -2,7 +2,7 @@
   <div class="section">
     <div class="container">
       <div class="columns is-centered">
-        <div class="column is-4 show-border">
+        <div class="column event is-4 show-border">
           <h1 class="title is-2">
             <%= @event.title %>
           </h1>
@@ -17,10 +17,40 @@
           <h3 class="author is-2">
             Hosted By: <%= @event.creator.name %>
           </h3>
-          
-          <%= link_to 'RSVP', enrollment_path(event_id: @event.id), method: :patch %>
-          <%= link_to 'Edit', edit_event_path(@event) %> |
-          <%= link_to "Back", :back %> 
+          <div class="actions">
+            <% if current_user == @event.creator%>
+            <div class="edit-back">
+              <%= link_to 'Edit', edit_event_path(@event) %> |
+              <%= link_to "Back", :back %> 
+            </div>
+            <% else %>
+              <div class="edit-back">
+                <%= link_to 'Back', :back %>
+              </div>
+            <% end %>
+            <% if current_user != @event.creator %>
+              <%= link_to 'RSVP', enrollment_path(event_id: @event.id), method: :patch, class: "button is-warning" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column rsvp is-4 show-border">
+          <h1 class="title is-2">
+            RSVPs
+          </h1>
+          <ol class="attendees is-2">
+            <% @event.attendees.each do |user| %>
+              <li><%= user.name %></li>
+            <% end %>
+          </ol>
+
+          </div>
         </div>
       </div>
     </div>

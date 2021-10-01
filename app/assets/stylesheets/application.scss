@@ -24,3 +24,33 @@
   border: 1px solid black;
   border-radius: 2%;
 }
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+// show page styles begin
+
+.event {
+  padding-bottom: 0;
+}
+
+.edit-back {
+  padding-top: 10px;
+}
+
+.attendees {
+  padding-left: 20px;
+}
+
+ol {
+  font-size: 1.2rem;
+  list-style-type: disc;
+}
+
+li {
+  padding-bottom: 10px;
+}
+
+// show page styles end
