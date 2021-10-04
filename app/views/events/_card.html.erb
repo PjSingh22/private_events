@@ -1,0 +1,16 @@
+<div class="centered">
+  <section class="cards">
+    <article class='card'>
+      <p class="title"><%= event.title %></p>
+      <p class='body'><%= event.body %></p>
+      <p class='date'><%= event.date %></p>
+      <div class="actions">
+        <span><%= link_to 'Show', event_path(event) %></span>
+        <% if event.user_id == current_user %>
+          <span><%= link_to 'Edit', edit_event_path(event) %></span>
+          <span><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        <% end %>
+      </div>
+    </article>
+  </section>
+</div>

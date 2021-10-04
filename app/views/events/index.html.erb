@@ -2,40 +2,12 @@
   <h1 class='events-title'>Upcoming Events</h1>
   
   <% @events.upcoming.each do |event| %>
-      <div class="centered">
-        <section class="cards">
-          <article class='card'>
-            <p class="title"><%= event.title %></p>
-            <p class='body'><%= event.body %></p>
-            <p class='date'><%= event.date %></p>
-            <div class="actions">
-              <span><%= link_to 'Edit', edit_event_path(event) %></span>
-              <span><%= link_to 'Show', event_path(event) %></span>
-              <span><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-            </div>
-          </article>
-        </section>
-      </div>
+      <%= render 'card', event: event %>
   <% end %>
 
   <h1 class='events-title'>Past Events</h1>
 
   <% @events.past.each do |event| %>
-    <% if event.date < Date.today%>
-      <div class="centered">
-        <section class="cards">
-          <article class='card'>
-            <p class="title"><%= event.title %></p>
-            <p class='body'><%= event.body %></p>
-            <p class='date'><%= event.date %></p>
-            <div class="actions">
-              <span><%= link_to 'Edit', edit_event_path(event) %></span>
-              <span><%= link_to 'Show', event_path(event) %></span>
-              <span><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-            </div>
-          </article>
-        </section>
-      </div>
-    <% end %>
+      <%= render 'card', event: event %>
   <% end %>
 </div>
