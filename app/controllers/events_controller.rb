@@ -3,6 +3,15 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show]
   # GET /events or /events.json
+
+  def past
+    @events = Event.past
+  end
+
+  def upcoming
+    @events = Event.upcoming
+  end
+  
   def index
     @events = Event.all
   end

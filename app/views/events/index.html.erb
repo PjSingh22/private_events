@@ -1,8 +1,7 @@
 <div id="container">
   <h1 class='events-title'>Upcoming Events</h1>
   
-  <% @events.each do |event| %>
-    <% if event.date >= Date.today %>
+  <% @events.upcoming.each do |event| %>
       <div class="centered">
         <section class="cards">
           <article class='card'>
@@ -17,12 +16,11 @@
           </article>
         </section>
       </div>
-    <% end %>
   <% end %>
 
   <h1 class='events-title'>Past Events</h1>
 
-  <% @events.each do |event| %>
+  <% @events.past.each do |event| %>
     <% if event.date < Date.today%>
       <div class="centered">
         <section class="cards">
