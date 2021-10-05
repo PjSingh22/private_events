@@ -2,6 +2,10 @@
 #container {
   padding: 20px;
 
+  .upcoming-events {
+    min-height: 500px;
+  }
+
   .cards {
     display: flex;
     flex-wrap: wrap;

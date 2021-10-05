@@ -1,13 +1,15 @@
 <div id="container">
   <h1 class='events-title'>Upcoming Events</h1>
-  
-  <% @events.upcoming.each do |event| %>
-      <%= render 'card', event: event %>
-  <% end %>
+  <div class="upcoming-events events-container">
+    <% @events.upcoming.each do |event| %>
+        <%= render 'card', event: event %>
+    <% end %>
+  </div>
 
   <h1 class='events-title'>Past Events</h1>
-
-  <% @events.past.each do |event| %>
-      <%= render 'card', event: event %>
-  <% end %>
+  <div class="past-events events-container">
+    <% @events.past.each do |event| %>
+        <%= render 'card', event: event %>
+    <% end %>
+  </div>
 </div>

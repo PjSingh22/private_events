@@ -45,19 +45,19 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section rsvp">
     <div class="container">
       <div class="columns is-centered">
         <div class="column rsvp is-4 show-border">
           <h1 class="title is-2">
             RSVPs
           </h1>
-          <ol class="attendees is-2">
+          <div class="attendees is-2 rsvp-list">
             <% @event.attendees.each do |user| %>
-              <li><%= user.name %></li>
+              <div class='attendee'>
+                <p class='name'><%= user.name %></p>
+              </div>
             <% end %>
-          </ol>
-
           </div>
         </div>
       </div>

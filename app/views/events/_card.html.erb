@@ -6,7 +6,7 @@
       <p class='date'><%= event.date %></p>
       <div class="actions">
         <span><%= link_to 'Show', event_path(event) %></span>
-        <% if event.user_id == current_user %>
+        <% if event.creator == current_user %>
           <span><%= link_to 'Edit', edit_event_path(event) %></span>
           <span><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></span>
         <% end %>
