@@ -29,10 +29,14 @@
               </div>
             <% end %>
             <% if current_user != @event.creator %>
-              <% if @event.attendees.where(id: current_user.id).any? %>
-                <%= link_to 'Unattend', enrollment_path(event_id: @event.id), method: :patch, class: "button is-warning" %>
+              <% if @event.date < Date.today %>
+                <div class='button is-danger'>Event Has Passed</div>
               <% else %>
-                <%= link_to 'RSVP', enrollment_path(event_id: @event.id), method: :patch, class: "button is-warning" %>
+                <% if current_user.attended_events.include?(@event) %>
+                  <%= link_to 'Unjoin', enrollment_path(event_id: @event.id), method: :patch, class: 'button is-danger' %>
+                <% else %>
+                  <%= link_to 'RSVP', enrollment_path(event_id: @event.id), method: :patch, class: "button is-warning" %>
+                <% end %>
               <% end %>
             <% end %>
           </div>
