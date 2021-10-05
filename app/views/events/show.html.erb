@@ -29,7 +29,11 @@
               </div>
             <% end %>
             <% if current_user != @event.creator %>
-              <%= link_to 'RSVP', enrollment_path(event_id: @event.id), method: :patch, class: "button is-warning" %>
+              <% if @event.attendees.where(id: current_user.id).any? %>
+                <%= link_to 'Unattend', enrollment_path(event_id: @event.id), method: :patch, class: "button is-warning" %>
+              <% else %>
+                <%= link_to 'RSVP', enrollment_path(event_id: @event.id), method: :patch, class: "button is-warning" %>
+              <% end %>
             <% end %>
           </div>
         </div>
