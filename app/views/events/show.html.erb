@@ -17,7 +17,7 @@
           <h3 class="author is-2">
             Hosted By: <%= @event.creator.name %>
           </h3>
-          <div class="actions">
+          <div class="rsvp-actions">
             <% if current_user == @event.creator%>
             <div class="edit-back">
               <%= link_to 'Edit', edit_event_path(@event) %> |
@@ -52,10 +52,15 @@
           <h1 class="title is-2">
             RSVPs
           </h1>
+          <div class="details">
+            <h2 class="detail">Name</h2>
+            <h2 class="detail">Email</h2>
+          </div>
           <div class="attendees is-2 rsvp-list">
             <% @event.attendees.each do |user| %>
               <div class='attendee'>
-                <p class='name'><%= user.name %></p>
+                <p class='name info'><%= user.name %></p>
+                <p class='email info'><%= user.email %></p>
               </div>
             <% end %>
           </div>

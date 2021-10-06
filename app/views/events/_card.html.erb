@@ -1,16 +1,17 @@
-<div class="centered">
-  <section class="cards">
-    <article class='card'>
-      <p class="title"><%= event.title %></p>
-      <p class='body'><%= event.body %></p>
-      <p class='date'><%= event.date %></p>
-      <div class="actions">
-        <span><%= link_to 'Show', event_path(event) %></span>
+<div class="cards">
+  <div class="card__container">
+    <div class="card">
+      <div class="card__content">
+        <h3 class="card__header"><%= event.title %></h3>
+        <p class="card__info"><%= event.date %></p>
+        <div class="actions">
+        <%= link_to 'Read Now', event_path(event), class: "button is-link is-rounded" %>
         <% if event.creator == current_user %>
-          <span><%= link_to 'Edit', edit_event_path(event) %></span>
-          <span><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+          <%= link_to 'Edit', edit_event_path(event), class: "button is-link is-rounded" %>
+          <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-link is-rounded" %>
         <% end %>
+        </div>
       </div>
-    </article>
-  </section>
+    </div>
+  </div>
 </div>

@@ -2,62 +2,27 @@
 #container {
   padding: 20px;
 
+  .events-container {
+    margin-top: 20px;
+    width: 100vw;
+    display: flex;
+  }
+
   .upcoming-events {
     min-height: 500px;
   }
+}
 
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-      
-    .card {
-      display: flex;
+  @media screen and (max-width: 400px) {
+    #container .events-container {
       flex-direction: column;
       align-items: center;
-      border: 1px solid black;
-      flex: 0 1 calc(25% - 1em);
-      margin-bottom: 1em;
-      margin-right: 1em;
-
-      .title {
-        margin-bottom: 0;
-        align-items: center;
-        font-weight: 500;
-      }
-
-      .body {
-        font-size: 1.3rem;
-        padding: 15px;
-      }
-
-      .date {
-        font-size: 1rem;
-      }
-
-      .actions {
-        width: 75%;
-        display: flex;
-        justify-content: space-around;
-      }
     }
-  }
-}
 
-@media screen and (min-width: 40em) {
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-
-    .card {
-      flex: 0 1 calc(25% - 1em);
-      max-width: calc(50% -  1em);
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
     }
-  }
-}
 
-@media screen and (min-width: 60em) {
-  .card {
-      flex: 0 1 calc(25% - 1em);
-      max-width: calc(25% - 1em);
-  }
+  //mobile display
 }
