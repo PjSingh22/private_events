@@ -30,7 +30,7 @@
             <% end %>
             <% if current_user != @event.creator %>
               <% if @event.date < Date.today %>
-                <div class='button is-danger'>Event Has Passed</div>
+                <div class='button is-danger', title="Disabled button" disabled>Event Has Passed</div>
               <% else %>
                 <% if current_user.attended_events.include?(@event) %>
                   <%= link_to 'Unjoin', enrollment_path(event_id: @event.id), method: :patch, class: 'button is-danger' %>

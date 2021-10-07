@@ -1,3 +1,25 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.users__page {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.cards__container {
+  display: flex;
+}
+
+.users__card {
+  width: 100%;
+  max-width: 250px;
+  max-height: 300px;
+  padding: auto;
+  text-align: center;
+  background: #242625;
+  border-radius: 10px;
+  margin: 10px;
+}

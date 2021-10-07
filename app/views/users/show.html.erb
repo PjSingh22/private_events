@@ -1,20 +1,22 @@
 <div id="container">
-  <h1><%= @user.name %>'s events</h1>
-
-  <div class="centered">
-    <section class="cards">
+  <h1 class='users__page'><%= @user.name %>'s events</h1>
+  <div class="cards">
+    <div class="cards__container">
       <% @user.events.each do |event| %>
-        <article class='card'>
-          <p class="title"><%= event.title %></p>
-          <p class='body'><%= event.body %></p>
-          <p class='date'><%= event.date %></p>
-          <div class="actions">
-            <span><%= link_to 'Edit', edit_event_path(event) %></span>
-            <span><%= link_to 'Show', event_path(event) %></span>
-            <span><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        <div class="users__card">
+          <div class="card__content">
+            <h3 class="card__header"><%=event.title%></h3>
+            <p class="card__info"><%=event.body%></p>
+            <p class="card__info"><%=event.date%></p>
+            <div class="actions">
+              <% if event.creator == current_user %>
+                <%= link_to 'Edit', edit_event_path(event), class: "button is-link is-rounded" %>
+                <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-link is-rounded" %>
+              <% end %>
+            </div>
           </div>
-        </article>
+        </div>
       <% end %>
-    </section>
+    </div>
   </div>
 </div>
