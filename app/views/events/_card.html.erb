@@ -4,7 +4,7 @@
       <div class="card__content">
         <h3 class="card__header"><%= event.title %></h3>
         <p class="card__info"><%= event.date %></p>
-        <div class="actions">
+        <div class="actions"> 
         <%= link_to 'Read Now', event_path(event), class: "button is-link is-rounded" %>
         <% if event.creator == current_user %>
           <%= link_to 'Edit', edit_event_path(event), class: "button is-link is-rounded" %>
