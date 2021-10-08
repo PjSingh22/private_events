@@ -30,6 +30,7 @@ app was designed to show my knowledge of making relations between database model
 
 # FOR MOBILE USERS
 the hamburger symbol doesn't work for the vital routes so I will list them here.
+
 Sign_in: https://pjs-private-events.herokuapp.com/users/sign_in
 
 Sign_up: https://pjs-private-events.herokuapp.com/users/sign_up
